@@ -4,7 +4,6 @@ package fileOperations;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
-import javax.swing.JOptionPane;
 
 /**
  * Reads a file to extract data from it.
@@ -28,10 +27,7 @@ public class FileToRead {
             fr = new FileReader(newName);
             sr = new Scanner(fr);
         }catch(IOException ioe){
-            String message = "the file **" + newName
-                    + "** wasn't found. Introduce the correct name file.";
-            newName = JOptionPane.showInputDialog(message);
-            initialize(newName);
+            System.out.println("The file wasn't found " + ioe.toString());
         }
     }
     public String nextLine(){

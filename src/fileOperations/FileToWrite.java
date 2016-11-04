@@ -4,7 +4,6 @@ package fileOperations;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.swing.JOptionPane;
 
 /**
  * Creates a file to write data in it. Only one line at a time can be written
@@ -46,10 +45,7 @@ public class FileToWrite {
             fw = new FileWriter(newName);
             pw = new PrintWriter(fw);
         }catch(IOException ioe){
-            String message = "the file **" + newName
-                    + "** wasn't found. Introduce the correct name file.";
-            newName = JOptionPane.showInputDialog(message);
-            initialize1(newName);
+            System.out.println("The file wasn't found " + ioe.toString());
         }
     }
     private void initialize2(String name){
@@ -59,10 +55,7 @@ public class FileToWrite {
             fw = new FileWriter(newName,true);
             pw = new PrintWriter(fw);
         }catch(IOException ioe){
-            String message = "the file **" + newName
-                    + "** wasn't found. Introduce the correct name file.";
-            newName = JOptionPane.showInputDialog(message);
-            initialize2(newName);
+            System.out.println("The file wasn't found " + ioe.toString());
         }
     }
 	/**
